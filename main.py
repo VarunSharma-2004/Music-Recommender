@@ -86,7 +86,7 @@ query_params = st.query_params
 if "code" not in query_params and "user" not in st.session_state:
     st.markdown("### 🔗 Please login with Google:")
     login_button_html = f"""
-    <a href="{auth_url}" target="_self">
+    <a href="{auth_url}" target="_blank">
         <button style="padding:10px 20px;font-size:16px;background-color:#4285F4;color:white;border:none;border-radius:5px;cursor:pointer;">
             👉 Login with Google
         </button>
