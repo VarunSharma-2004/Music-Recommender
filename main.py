@@ -17,7 +17,7 @@ genai.configure(api_key="AIzaSyAEc2vZc-_QbAz753Umil7d0Na7jlbblUI")
 # Google OAuth Setup
 client_id = "799230987280-slj2i30suidm19oa69k7uuf3fv8mghe1.apps.googleusercontent.com"
 client_secret = os.getenv("client_secret")
-redirect_uri = "http://localhost:8501"
+redirect_uri = "https://music-gpt.streamlit.app"
 scope = "openid email profile"
 auth_base_url = "https://accounts.google.com/o/oauth2/v2/auth"
 token_url = "https://oauth2.googleapis.com/token"
