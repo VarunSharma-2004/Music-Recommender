@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Google Gemini API Key
-genai.configure(api_key="AIzaSyD-UsBAQiP5dDwE0ZISszCdWuLkta-xRX4")
+genai.configure(api_key=os.getenv("gemini_api"))
 
 # Google OAuth Setup
 client_id = "799230987280-slj2i30suidm19oa69k7uuf3fv8mghe1.apps.googleusercontent.com"
