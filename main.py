@@ -15,7 +15,7 @@ load_dotenv()
 genai.configure(api_key=os.getenv("gemini_api"))
 
 # Google OAuth Setup
-client_id = "799230987280-slj2i30suidm19oa69k7uuf3fv8mghe1.apps.googleusercontent.com"
+client_id = "365256296387-8qe3cfm2lmj46jk832arf0ltevfpqg93.apps.googleusercontent.com"
 client_secret = os.getenv("client_secret")
 redirect_uri = "https://music-gpt.streamlit.app"
 scope = "openid email profile"
