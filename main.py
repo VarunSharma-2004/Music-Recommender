@@ -10,6 +10,14 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from dotenv import load_dotenv
 load_dotenv()
+import google.api_core.exceptions
+
+try:
+    response = st.session_state.gemini_chat.send_message(user_message)
+except google.api_core.exceptions.ResourceExhausted as e:
+    st.error("API quota or resource limit exceeded. Try again later or reduce the input size.")
+    st.stop()
+
 
 # Google Gemini API Key
 genai.configure(api_key=os.getenv("gemini_api"))
