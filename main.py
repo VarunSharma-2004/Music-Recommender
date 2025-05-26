@@ -11,6 +11,12 @@ from spotipy.oauth2 import SpotifyClientCredentials
 from dotenv import load_dotenv
 load_dotenv()
 import google.api_core.exceptions
+import google.generativeai as genai  # Make sure you've imported the module
+
+# Initialize Gemini chat once
+if "gemini_chat" not in st.session_state:
+    model = genai.GenerativeModel("gemini-1.5-pro")  # Use your model name here
+    st.session_state.gemini_chat = model.start_chat(history=[])
 
 try:
     response = st.session_state.gemini_chat.send_message(user_message)
