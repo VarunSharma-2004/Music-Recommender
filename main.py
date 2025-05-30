@@ -164,7 +164,7 @@ if not st.session_state.user:
         print(f"DEBUG LOGIN URL: {auth_url_full}") # Also print to console
 
         login_button_html = f'''
-        <a href="{auth_url_full}" target="_self">
+        <a href="{auth_url_full}" target="_blank">
             <button style="display: block; margin: 10px auto; padding:10px 20px;font-size:16px;background-color:#4285F4;color:white;border:none;border-radius:5px;cursor:pointer;">
                 👉 Login with Google
             </button>
