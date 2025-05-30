@@ -22,7 +22,7 @@ if not GEMINI_API_KEY:
 genai.configure(api_key=GEMINI_API_KEY)
 
 # Google OAuth Setup
-CLIENT_ID = "365256296387-8qe3cfm2lmj46jk832arf0ltevfpqg93.apps.googleusercontent.com"
+CLIENT_ID = "370457012435-s3efe495mtvr28ngbla812doqe5ca6ie.apps.googleusercontent.com"
 CLIENT_SECRET = os.getenv("client_secret")
 if not CLIENT_SECRET:
     st.error("Google Client Secret not found. Please set it in your .env file.")
