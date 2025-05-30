@@ -24,7 +24,7 @@ fuzzywuzzy==0.18.0
 gitdb==4.0.12
 GitPython==3.1.44
 google-ai-generativelanguage==0.6.15
-google-api-core==2.17.1
+google-api-core==2.24.2
 google-api-python-client==2.166.0
 google-auth==2.38.0
 google-auth-httplib2==0.2.0
@@ -56,7 +56,7 @@ pandas==2.2.3
 pillow==11.1.0
 propcache==0.3.1
 proto-plus==1.26.1
-protobuf==4.25.3
+protobuf==5.29.4
 pyarrow==19.0.1
 pyasn1==0.6.1
 pyasn1_modules==0.4.2
