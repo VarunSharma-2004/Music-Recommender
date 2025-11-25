@@ -214,7 +214,7 @@ def generate_session_name(messages):
         if msg["role"] in ["user", "assistant"]:
             prompt += f"{msg['role'].capitalize()}: {msg['content']}\n"
     
-    model = genai.GenerativeModel("gemini-1.5-pro")
+    model = genai.GenerativeModel("gemini-3-pro")
     try:
         response = model.generate_content(prompt)
         name = response.text.strip().replace("\n", "")
@@ -293,7 +293,7 @@ if user_message:
 
         # Store chat session once per user
         if "gemini_chat" not in st.session_state:
-            model = genai.GenerativeModel("gemini-1.5-pro")
+            model = genai.GenerativeModel("gemini-3-pro")
 
             system_prompt = (
                 "You are a helpful AI chatbot specialized in music. "
