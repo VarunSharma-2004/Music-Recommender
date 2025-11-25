@@ -214,7 +214,7 @@ def generate_session_name(messages):
         if msg["role"] in ["user", "assistant"]:
             prompt += f"{msg['role'].capitalize()}: {msg['content']}\n"
     
-    model = genai.GenerativeModel("gemini-3-pro")
+    model = genai.GenerativeModel("gemini-1.5-pro")
     try:
         response = model.generate_content(prompt)
         name = response.text.strip().replace("\n", "")
@@ -293,7 +293,7 @@ if user_message:
 
         # Store chat session once per user
         if "gemini_chat" not in st.session_state:
-            model = genai.GenerativeModel("gemini-3-pro")
+            model = genai.GenerativeModel("gemini-1.5-pro")
 
             system_prompt = (
                 "You are a helpful AI chatbot specialized in music. "
@@ -303,9 +303,9 @@ if user_message:
             )
 
             st.session_state.gemini_chat = model.start_chat(history=[
-                {"role": "user", "parts": [system_prompt]},
+                {"role": "user", "parts": [{"text": system_prompt}]},
                 *[
-                    {"role": msg["role"], "parts": [msg["content"]]}
+                    {"role": msg["role"], "parts": [{"text": msg["content"]}]}
                 for msg in st.session_state["messages"]
                  ]
             ])
@@ -317,14 +317,7 @@ if user_message:
                 "If the user asks anything unrelated to music (like weather, sports, politics, or general chit-chat), reply: "
                 "'Sorry, I'm a music chatbot. I can only help you with music recommendations and related discussions.'"
             )
-
-            st.session_state.gemini_chat.history = [
-                {"role": "user", "parts": [system_prompt]},
-                *[
-                    {"role": msg["role"], "parts": [msg["content"]]}
-                    for msg in st.session_state["messages"]
-                ]
-            ]
+            
             should_recommend = any(word in user_message.lower() for word in ["sad", "happy", "energetic", "calm", "relax", "depressed", "excited", "bored"])
             if should_recommend:
                 sentiment = analyze_sentiment(user_message)
@@ -343,7 +336,7 @@ if user_message:
 
 
         # Send message with context-aware memory
-        response = st.session_state.gemini_chat.send_message(user_message)
+        response = st.session_state.gemini_chat.send_message({"text": user_message})
         bot_reply = response.text if response else "Sorry, I couldn't generate a response."
         placeholder.markdown(bot_reply)
 
